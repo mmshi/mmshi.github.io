@@ -11,7 +11,7 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
 	<body class="landing">
-
+		
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
 
@@ -36,7 +36,7 @@
 					</header>
 
 				<!-- Banner -->
-					<section id="banner">
+						<section id="banner">
 						<div class="inner">
 							<h2>Monica Shi</h2>
 							<p>Sophomore @ Princeton University<br />
@@ -44,7 +44,7 @@
 							<a href="http://princetonsi.com" target="_blank">social entrepreneurship</a>, <br />
 							<a href="https://medium.com/@monica.amanda.shi" target="_blank">telling stories</a>. </p>
 						</div>
-					</section>
+						</section>
 
 				<!-- Footer -->
 					<footer id="footer">
@@ -60,7 +60,7 @@
 							<li>&copy; Monica Shi</li>
 						</ul>
 					</footer>
-			</div>
+			
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -70,6 +70,29 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script src="particles.js"></script>
+			<script src="assets/js/app.js"></script>
+			<script src="assets/js/lib/stats.js"></script>
+
+			<script>
+			  var count_particles, stats, update;
+			  stats = new Stats;
+			  stats.setMode(0);
+			  stats.domElement.style.position = 'absolute';
+			  stats.domElement.style.left = '0px';
+			  stats.domElement.style.top = '0px';
+			  document.body.appendChild(stats.domElement);
+			  count_particles = document.querySelector('.js-count-particles');
+			  update = function() {
+			    stats.begin();
+			    stats.end();
+			    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+			      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+			    }
+			    requestAnimationFrame(update);
+			  };
+			  requestAnimationFrame(update);
+			</script>
 
 	</body>
 </html>
